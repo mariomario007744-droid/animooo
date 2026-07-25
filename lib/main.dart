@@ -1,4 +1,4 @@
-import 'package:animooo/features/splash_view/presentation/views/simple_splash_view.dart';
+import 'package:animooo/core/utils/app_routing.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,19 +10,18 @@ class AnimoooApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         brightness: Brightness.light,
-        scaffoldBackgroundColor: Colors.white
+        scaffoldBackgroundColor: Colors.white,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.black
+        scaffoldBackgroundColor: Colors.black,
       ),
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: SimpleSplashScrean(),
+      routerConfig: AppRoutes.router,
     );
   }
 }
-
