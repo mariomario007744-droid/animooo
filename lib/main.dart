@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:animooo/features/splash_view/presentation/views/simple_splash_view.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(AnimoooApp());
@@ -9,6 +10,19 @@ class AnimoooApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: Colors.white
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black
+      ),
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
+      home: SimpleSplashScrean(),
+    );
   }
 }
+
