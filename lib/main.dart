@@ -12,14 +12,9 @@ class AnimoooApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(
-        brightness: Brightness.light,
+        fontFamily: 'Poppins',
         scaffoldBackgroundColor: Colors.white,
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.black,
-      ),
-      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       routerConfig: AppRoutes.router,
     );

@@ -28,9 +28,10 @@ class _CustomSplashViewState extends State<CustomSplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
-          Image.asset(AssetsData.backgroundCustomSplashView, fit: BoxFit.fill),
+          Positioned.fill(child: Image.asset(AssetsData.backgroundCustomSplashView,fit: BoxFit.cover,)),
           Center(child: Image.asset(AssetsData.logoLight)),
         ],
       ),
