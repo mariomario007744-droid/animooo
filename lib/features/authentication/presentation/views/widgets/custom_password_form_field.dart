@@ -2,8 +2,13 @@ import 'package:animooo/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomPasswordFormField extends StatefulWidget {
-  const CustomPasswordFormField({super.key, required this.hintText});
+  const CustomPasswordFormField({
+    super.key,
+    required this.hintText,
+    required this.validator,
+  });
   final String hintText;
+  final Function(String?) validator;
 
   @override
   State<CustomPasswordFormField> createState() =>
@@ -15,6 +20,8 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: TextInputAction.next,
+      validator: (value) => widget.validator(value),
       obscureText: _isObscured,
       decoration: InputDecoration(
         suffixIcon: IconButton(
