@@ -1,5 +1,6 @@
 import 'package:animooo/core/widgets/Logo.dart';
 import 'package:animooo/core/widgets/custom_button.dart';
+import 'package:animooo/features/authentication/presentation/manager/confirm_password_cubit/confirm_password_cubit.dart';
 import 'package:animooo/features/authentication/presentation/manager/password_validation_requirements_cubit/password_validation_requirements_cubit.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/auth_toggle_row.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_field_label_text.dart';
@@ -54,21 +55,34 @@ class SignUpViewBody extends StatelessWidget {
             CustomPasswordFormField(
               hintText: 'Enter your password',
               validator: (value) {
-                if (BlocProvider.of<PasswordValidationRequirementsCubit>(context).allDone==false) {
+                if (BlocProvider.of<PasswordValidationRequirementsCubit>(
+                      context,
+                    ).allDone ==
+                    false) {
                   return 'Invalid password';
                 }
               },
-              onChanged: (value) =>
-                  BlocProvider.of<PasswordValidationRequirementsCubit>(
-                    context,
-                  ).validatePassword(value),
+              onChanged: (value) {
+                BlocProvider.of<ConfirmPasswordCubit>(context).passwordText =
+                    value;
+                BlocProvider.of<PasswordValidationRequirementsCubit>(
+                  context,
+                ).validatePassword(value);
+              },
             ),
             PasswordValidationRequirements(),
             SizedBox(height: 16),
             CustomFieldLabelText(text: 'Confirm Password'),
             CustomPasswordFormField(
               hintText: 'Enter your password',
-              validator: (value) {},
+              validator: (value) {
+                if (BlocProvider.of<ConfirmPasswordCubit>(
+                      context,
+                    ).passwordText !=
+                    value) {
+                  return 'Password confirmation does not match';
+                }
+              },
               onChanged: (value) {},
             ),
             SizedBox(height: 16),
