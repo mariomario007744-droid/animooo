@@ -1,5 +1,6 @@
 import 'package:animooo/core/widgets/Logo.dart';
 import 'package:animooo/core/widgets/custom_button.dart';
+import 'package:animooo/features/authentication/presentation/manager/password_validation_requirements_cubit/password_validation_requirements_cubit.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/auth_toggle_row.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_field_label_text.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_password_form_field.dart';
@@ -8,6 +9,7 @@ import 'package:animooo/features/authentication/presentation/views/widgets/passw
 import 'package:animooo/features/authentication/presentation/views/widgets/title_login_and_signup.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/validations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -51,15 +53,22 @@ class SignUpViewBody extends StatelessWidget {
             CustomFieldLabelText(text: 'Password'),
             CustomPasswordFormField(
               hintText: 'Enter your password',
-              validator: (value){},
-              onChanged: (value) {},
+              validator: (value) {
+                if (BlocProvider.of<PasswordValidationRequirementsCubit>(context).allDone==false) {
+                  return 'Invalid password';
+                }
+              },
+              onChanged: (value) =>
+                  BlocProvider.of<PasswordValidationRequirementsCubit>(
+                    context,
+                  ).validatePassword(value),
             ),
             PasswordValidationRequirements(),
             SizedBox(height: 16),
             CustomFieldLabelText(text: 'Confirm Password'),
             CustomPasswordFormField(
               hintText: 'Enter your password',
-              validator: (value){},
+              validator: (value) {},
               onChanged: (value) {},
             ),
             SizedBox(height: 16),

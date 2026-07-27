@@ -1,5 +1,7 @@
+import 'package:animooo/features/authentication/presentation/manager/password_validation_requirements_cubit/password_validation_requirements_cubit.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -7,8 +9,9 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(child: SignUpViewBody()),
+    return BlocProvider(
+      create: (context) => PasswordValidationRequirementsCubit(),
+      child: Scaffold(body: SafeArea(child: SignUpViewBody())),
     );
   }
 }
