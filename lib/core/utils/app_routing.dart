@@ -1,3 +1,4 @@
+import 'package:animooo/features/authentication/presentation/views/forget_password_view.dart';
 import 'package:animooo/features/authentication/presentation/views/login_view.dart';
 import 'package:animooo/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:animooo/features/splash_view/presentation/views/custom_splash_view.dart';
@@ -22,6 +23,10 @@ abstract class AppRoutes {
       GoRoute(
         path: SignUpView.routeName,
         builder: (context, state) => SignUpView(),
+      ),
+      GoRoute(
+        path: ForgetPasswordView.routeName,
+        builder: (context, state) => ForgetPasswordView(),
       ),
     ],
   );

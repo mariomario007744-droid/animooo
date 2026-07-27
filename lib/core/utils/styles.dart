@@ -9,4 +9,8 @@ abstract class Styles {
   static const TextStyle fontSize12 = TextStyle(fontSize: 12);
   static const TextStyle fontSize14 = TextStyle(fontSize: 14);
   static const TextStyle fontSize16 = TextStyle(fontSize: 16);
+  static const TextStyle fontSize20 = TextStyle(
+    fontSize: 20,
+    fontFamily: 'Otama.ep',
+  );
 }

@@ -1,5 +1,6 @@
 import 'package:animooo/core/widgets/Logo.dart';
 import 'package:animooo/core/widgets/custom_button.dart';
+import 'package:animooo/features/authentication/presentation/views/forget_password_view.dart';
 import 'package:animooo/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_field_label_text.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_password_form_field.dart';
@@ -41,7 +42,11 @@ class LoginViewBody extends StatelessWidget {
             SizedBox(height: 8),
             Align(
               alignment: AlignmentGeometry.centerRight,
-              child: TextForgetPassword(),
+              child: TextForgetPassword(
+                onTap: () {
+                  context.push(ForgetPasswordView.routeName);
+                },
+              ),
             ),
             SizedBox(height: 32),
             CustomButton(

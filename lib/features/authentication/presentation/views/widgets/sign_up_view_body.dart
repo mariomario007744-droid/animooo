@@ -29,30 +29,35 @@ class SignUpViewBody extends StatelessWidget {
             SizedBox(height: 40),
             Center(child: TitleLoginAndSignUpView(text: 'Sign Up')),
             CustomFieldLabelText(text: 'First Name'),
+            SizedBox(height: 8),
             CustomTextFormField(
               hintText: 'Enter your First Name',
               validator: Validations.nameText,
             ),
             SizedBox(height: 16),
             CustomFieldLabelText(text: 'Last Name'),
+            SizedBox(height: 8),
             CustomTextFormField(
               hintText: 'Enter your Last Name',
               validator: Validations.nameText,
             ),
             SizedBox(height: 16),
             CustomFieldLabelText(text: 'Email'),
+            SizedBox(height: 8),
             CustomTextFormField(
               hintText: 'Enter your email address',
               validator: Validations.validationEmail,
             ),
             SizedBox(height: 16),
             CustomFieldLabelText(text: 'Phone'),
+            SizedBox(height: 8),
             CustomTextFormField(
               hintText: 'Enter your Phone',
               validator: Validations.phoneNumber,
             ),
             SizedBox(height: 16),
             CustomFieldLabelText(text: 'Password'),
+            SizedBox(height: 8),
             CustomPasswordFormField(
               hintText: 'Enter your password',
               validator: (value) {
@@ -74,6 +79,7 @@ class SignUpViewBody extends StatelessWidget {
             PasswordValidationRequirements(),
             SizedBox(height: 16),
             CustomFieldLabelText(text: 'Confirm Password'),
+            SizedBox(height: 8),
             CustomPasswordFormField(
               hintText: 'Enter your password',
               validator: (value) {
@@ -92,12 +98,12 @@ class SignUpViewBody extends StatelessWidget {
             SizedBox(height: 16),
             CustomButton(
               onPressed: () => validateLogicButton(context: context),
-              text: 'Log In',
+              text: 'Sign Up',
             ),
             SizedBox(height: 16),
             AuthToggleRow(
-              text: 'Don’t have an account? ',
-              navigationText: 'Sign up now',
+              text: 'Have an account already? ',
+              navigationText: 'Log in',
               onTap: () => context.pop(),
             ),
           ],
