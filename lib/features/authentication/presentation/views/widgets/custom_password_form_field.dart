@@ -6,10 +6,11 @@ class CustomPasswordFormField extends StatefulWidget {
     super.key,
     required this.hintText,
     required this.validator,
+    required this.onChanged
   });
   final String hintText;
   final Function(String?) validator;
-
+  final  void Function(String) onChanged;
   @override
   State<CustomPasswordFormField> createState() =>
       _CustomPasswordFormFieldState();
@@ -20,6 +21,7 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: widget.onChanged,
       textInputAction: TextInputAction.next,
       validator: (value) => widget.validator(value),
       obscureText: _isObscured,

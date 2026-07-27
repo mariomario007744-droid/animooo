@@ -1,27 +1,34 @@
 import 'package:animooo/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class RowTextNewAcount extends StatelessWidget {
-  const RowTextNewAcount({super.key});
-
+class AuthToggleRow extends StatelessWidget {
+  const AuthToggleRow({
+    super.key,
+    required this.text,
+    required this.navigationText,
+    required this.onTap,
+  });
+  final String text;
+  final String navigationText;
+  final void Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Don’t have an account? ',
+          text,
           style: Styles.fontSize14.copyWith(fontWeight: FontWeight.w500),
         ),
         GestureDetector(
+          onTap: onTap,
           child: Text(
-            'Sign up now',
+            navigationText,
             style: Styles.fontSize14.copyWith(
               fontWeight: FontWeight.w500,
               decoration: TextDecoration.underline,
             ),
           ),
-          onTap: () {},
         ),
       ],
     );
