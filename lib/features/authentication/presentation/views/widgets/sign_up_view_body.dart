@@ -2,6 +2,7 @@ import 'package:animooo/core/widgets/Logo.dart';
 import 'package:animooo/core/widgets/custom_button.dart';
 import 'package:animooo/features/authentication/presentation/manager/confirm_password_cubit/confirm_password_cubit.dart';
 import 'package:animooo/features/authentication/presentation/manager/password_validation_requirements_cubit/password_validation_requirements_cubit.dart';
+import 'package:animooo/features/authentication/presentation/views/widgets/add_image_section.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/auth_toggle_row.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_field_label_text.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_password_form_field.dart';
@@ -32,25 +33,25 @@ class SignUpViewBody extends StatelessWidget {
               hintText: 'Enter your First Name',
               validator: Validations.nameText,
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 16),
             CustomFieldLabelText(text: 'Last Name'),
             CustomTextFormField(
               hintText: 'Enter your Last Name',
               validator: Validations.nameText,
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 16),
             CustomFieldLabelText(text: 'Email'),
             CustomTextFormField(
               hintText: 'Enter your email address',
               validator: Validations.validationEmail,
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 16),
             CustomFieldLabelText(text: 'Phone'),
             CustomTextFormField(
               hintText: 'Enter your Phone',
               validator: Validations.phoneNumber,
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 16),
             CustomFieldLabelText(text: 'Password'),
             CustomPasswordFormField(
               hintText: 'Enter your password',
@@ -86,6 +87,9 @@ class SignUpViewBody extends StatelessWidget {
               onChanged: (value) {},
             ),
             SizedBox(height: 16),
+            CustomFieldLabelText(text: 'Upload Image For Your Profile'),
+            AddImageSection(),
+            SizedBox(height: 16),
             CustomButton(
               onPressed: () => validateLogicButton(context: context),
               text: 'Log In',
@@ -110,3 +114,4 @@ class SignUpViewBody extends StatelessWidget {
     }
   }
 }
+

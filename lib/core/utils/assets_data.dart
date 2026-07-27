@@ -3,4 +3,5 @@ abstract class AssetsData {
   static const String logoDark = 'assets/images/logo_dark.png';
   static const String backgroundCustomSplashView =
       'assets/images/Splash Screen under android 12.png';
+  static const String addImageIcon = 'assets/images/Subtract.svg';
 }

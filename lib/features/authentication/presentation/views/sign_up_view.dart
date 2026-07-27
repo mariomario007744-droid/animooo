@@ -1,3 +1,4 @@
+import 'package:animooo/features/authentication/presentation/manager/add_image_cubit/add_image_cubit.dart';
 import 'package:animooo/features/authentication/presentation/manager/confirm_password_cubit/confirm_password_cubit.dart';
 import 'package:animooo/features/authentication/presentation/manager/password_validation_requirements_cubit/password_validation_requirements_cubit.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/sign_up_view_body.dart';
@@ -14,6 +15,8 @@ class SignUpView extends StatelessWidget {
       providers: [
         BlocProvider(create:(context)=> PasswordValidationRequirementsCubit()),
         BlocProvider(create:(context)=> ConfirmPasswordCubit()),
+        BlocProvider(create:(context)=> AddImageCubit()),
+
       ],
       child: Scaffold(body: SafeArea(child: SignUpViewBody()))
       );
