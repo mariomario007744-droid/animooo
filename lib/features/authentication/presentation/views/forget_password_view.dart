@@ -1,4 +1,5 @@
 import 'package:animooo/core/widgets/custom_button.dart';
+import 'package:animooo/features/authentication/presentation/views/confirm_otp_view.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/back_arrow_app_bar.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_field_label_text.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_text_form_field.dart';
@@ -6,6 +7,7 @@ import 'package:animooo/features/authentication/presentation/views/widgets/sub_t
 import 'package:animooo/features/authentication/presentation/views/widgets/titele_forget_screens.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/validations.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   ForgetPasswordView({super.key});
@@ -34,7 +36,7 @@ class ForgetPasswordView extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).size.height*0.15,),
               CustomButton(
                 onPressed: () => validateLogicButton(context: context),
-                text: 'Log In',
+                text: 'Send  Code',
               ),
             ]),
           ),
@@ -44,6 +46,7 @@ class ForgetPasswordView extends StatelessWidget {
   }
     validateLogicButton({required BuildContext context}) {
     if (formKey.currentState!.validate()) {
+        context.push(ConfirmOTPCodeView.routeName);
 
     }
   }
