@@ -1,10 +1,12 @@
 import 'package:animooo/core/widgets/custom_button.dart';
+import 'package:animooo/features/authentication/presentation/views/create_new_password_view.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/back_arrow_app_bar.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/custom_otp_widget.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/resend_code_timer.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/sub_titele_forget_screens.dart';
 import 'package:animooo/features/authentication/presentation/views/widgets/titele_forget_screens.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ConfirmOTPCodeView extends StatelessWidget {
   ConfirmOTPCodeView({super.key});
@@ -20,6 +22,7 @@ class ConfirmOTPCodeView extends StatelessWidget {
           child: Column(
             children: [
               const BackArrowAppBar(text: 'Cancel'),
+              SizedBox(height: 8),
               Expanded(
                 child: Form(
                   key: formKey,
@@ -53,10 +56,9 @@ class ConfirmOTPCodeView extends StatelessWidget {
   }
 
   navigateToHomeView({required BuildContext context}) {
-    print('DoneXXXX');
     FocusScope.of(context).unfocus();
     if (formKey.currentState!.validate()) {
-      print('Done');
+      context.pushReplacement(CreateNewPasswordView.routeName);
     }
   }
 }

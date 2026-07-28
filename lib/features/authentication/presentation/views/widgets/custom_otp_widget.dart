@@ -12,7 +12,7 @@ class CustomOTPWidget extends StatelessWidget {
         if (value == null) {
           return 'Please enter the verification code.';
         }
-        if (value.length != 6) {
+        if (value.length != 4) {
           return ':Please enter the full 6-digit code.';
         }
         return null;
@@ -46,7 +46,7 @@ class CustomOTPWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
       ),
-      length: 6,
+      length: 4,
     );
   }
 }

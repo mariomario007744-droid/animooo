@@ -20,34 +20,48 @@ class ForgetPasswordView extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Form(
-            key: formKey,
-            child: ListView(children: [BackArrowAppBar(text: 'Back'),
-            SizedBox(height: 8,),
-            TiteleForgetScreens(text: 'Forget Your Password ?'),
-            SubTiteleForgetScreens(text: "Please enter the email address associated with your account, and we'll send you OTP to reset your password."),
-            SizedBox(height: MediaQuery.of(context).size.height*0.05,),
-            CustomFieldLabelText(text: 'Email'),
-              SizedBox(height: 8),
-              CustomTextFormField(
-                hintText: 'Enter your email address',
-                validator: Validations.validationEmail,
+          child: Column(
+            children: [
+              const BackArrowAppBar(text: 'Back'),
+              const SizedBox(height: 8),
+              Expanded(
+                child: Form(
+                  key: formKey,
+                  child: ListView(
+                    children: [
+                      const TiteleForgetScreens(text: 'Forget Your Password ?'),
+                      const SubTiteleForgetScreens(
+                        text:
+                            "Please enter the email address associated with your account, and we'll send you OTP to reset your password.",
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                      const CustomFieldLabelText(text: 'Email'),
+                      const SizedBox(height: 8),
+                      CustomTextFormField(
+                        hintText: 'Enter your email address',
+                        validator: Validations.validationEmail,
+                      ),
+                      SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+                      CustomButton(
+                        onPressed: () => validateLogicButton(context: context),
+                        text: 'Send  Code',
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height*0.15,),
-              CustomButton(
-                onPressed: () => validateLogicButton(context: context),
-                text: 'Send  Code',
-              ),
-            ]),
+            ],
           ),
         ),
       ),
     );
   }
-    validateLogicButton({required BuildContext context}) {
-    if (formKey.currentState!.validate()) {
-        context.push(ConfirmOTPCodeView.routeName);
 
+  validateLogicButton({required BuildContext context}) {
+    if (formKey.currentState!.validate()) {
+      context.push(ConfirmOTPCodeView.routeName);
     }
   }
 }
